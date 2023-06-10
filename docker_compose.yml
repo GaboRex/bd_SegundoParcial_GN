@@ -1,0 +1,12 @@
+version: "3"
+services:
+  master:
+    image: mysql:debian
+    container_name: db_GN
+    ports:
+      - "3310:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 123
+      MYSQL_DATABASE: db_GN
+    volumes:
+      - ./scripts:/docker-entrypoint-initdb.d
