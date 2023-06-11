@@ -1,13 +1,5 @@
 # **Segundo Parcial BD - Implementación  Nuevo Sistema De Almacenes Para Los Medicamentos Controlados Para La Ceass**.👨‍⚕️🏥
 
-## **Indice.**
-
-- [Descripción de la entidad y los requisitos](#Descripcion)
-- [Diagrama propuesto de Base Datos](#Diagrama)
-- [Requisitos técnicos](#Requisitos)
-- [¿Cómo podemos levantarlo localmente?](#Deploy)
-
-
 ## **Descripción de la entidad y los requisitos**🏢.
 
 _La CEASS (Central de Abastecimiento y Suministros de Salud) es una institución destacada en el suministro de medicamentos esenciales en Bolivia. Su principal misión es garantizar el abastecimiento de medicamentos esenciales y suministros médicos de calidad, a precios asequibles, a todos los establecimientos de salud de los subsectores público y de la seguridad social de corto plazo en el país._
@@ -17,9 +9,6 @@ _Lo que se busca con esta propuesta es tener una base de datos la cual nos permi
 _Con el objetivo de automatizar y gestionar de manera eficiente los alamacenes, inventarios, registros, stocks de medicamentos. entre otros._
 
 ## **Diagrama propuesto de Base Datos** ☁🤖.
-![UML BD drawio](https://github.com/GaboRex/bd_GabrielNeme/assets/80688833/107956d2-cf59-48a7-ab54-cb0f50a40e4e)
-
-_Aqui tenemos el diagrama propuesto, el cual nos manifesta las diferentes entidades mencionadas que usaremos para modelar nuestra mbase de datos para cumplir el objetivo del nuevos sistema de la CEASS._
 
 
 ## **Requisitos técnicos**🖥💻.
