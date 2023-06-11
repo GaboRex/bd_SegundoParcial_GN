@@ -16,7 +16,6 @@ CREATE TABLE Direccion (
 CREATE TABLE Proveedores (
   IDProveedor INT PRIMARY KEY,
   NombreProveedor VARCHAR(100),
-  Direccion VARCHAR(100),
   NumeroTelefono VARCHAR(20),
   CorreoElectronico VARCHAR(100),
   IDireccion INT,
@@ -42,7 +41,6 @@ CREATE TABLE Medicamentos (
   FOREIGN KEY (IDProveedor) REFERENCES Proveedores(IDProveedor)
   
 );
-
 
 
 CREATE TABLE Compras (
@@ -100,7 +98,6 @@ CREATE TABLE MovimientosInventario (
 CREATE TABLE Almacenes (
   IDAlmacen INT PRIMARY KEY,
   NombreAlmacen VARCHAR(100),
-  Ubicacion VARCHAR(100),
   IDMedicamento INT,
   IDMovimiento INT,
   FOREIGN KEY (IDMedicamento) REFERENCES Medicamentos(IDMedicamento),
@@ -109,29 +106,53 @@ CREATE TABLE Almacenes (
 
 
 INSERT INTO Clientes(IDCliente, Nombre, Contrasena, Rol)
-VALUES (1, 'CristianoRonaldo', '123456', 'Administrador');
-
+VALUES (1, 'Cristiano Ronaldo', '123456', 'Administrador');
 INSERT INTO Clientes(IDCliente, Nombre, Contrasena, Rol)
 VALUES (2, 'Lionel Messi', '2468', 'Vendedor');
+INSERT INTO Clientes(IDCliente, Nombre, Contrasena, Rol)
+VALUES (3, 'Ronaldo Nazario', '2222', 'Vendedor');
+INSERT INTO Clientes(IDCliente, Nombre, Contrasena, Rol)
+VALUES (4, 'Zinedine Zidane', '6666', 'Cliente VIP');
+
 
 INSERT INTO Direccion (IDireccion, Pais, Departamento)
 VALUES (1, 'Bolivia', 'Santa Cruz');
-
 INSERT INTO Direccion (IDireccion, Pais, Departamento)
 VALUES (2, 'Argentina', 'Buenos Aires');
+INSERT INTO Direccion (IDireccion, Pais, Departamento)
+VALUES (3, 'Peru', 'Lima');
+INSERT INTO Direccion (IDireccion, Pais, Departamento)
+VALUES (4, 'Bolivia', 'Tarija');
 
-INSERT INTO Proveedores (IDProveedor, NombreProveedor, Direccion, NumeroTelefono, CorreoElectronico,IDireccion)
-VALUES (1, 'Bago', 'Calle de la felicidad', '123456789', 'rico@gmail.com',1);
+
+INSERT INTO Proveedores (IDProveedor, NombreProveedor, NumeroTelefono, CorreoElectronico,IDireccion)
+VALUES (1, 'Bago', '123456789', 'b@gmail.com',1);
+INSERT INTO Proveedores (IDProveedor, NombreProveedor, NumeroTelefono, CorreoElectronico,IDireccion)
+VALUES (2, 'FarmaCorp', '24680', 'f@gmail.com',2);
+INSERT INTO Proveedores (IDProveedor, NombreProveedor, NumeroTelefono, CorreoElectronico,IDireccion)
+VALUES (3, 'Vita',  '123456789', 'v@gmail.com',3);
+INSERT INTO Proveedores (IDProveedor, NombreProveedor, NumeroTelefono, CorreoElectronico,IDireccion)
+VALUES (4, 'Alfa', '123456789', 'rico@gmail.com',4);
+
 
 INSERT INTO Marcas (IDMarca, NombreMarca, Descripcion)
 VALUES(1, 'Laboratorio Chibolo', 'Descripción de la Marca A');
+INSERT INTO Marcas (IDMarca, NombreMarca, Descripcion)
+VALUES(2, 'Laboratorio Delta', 'Descripción de la Marca B');
+INSERT INTO Marcas (IDMarca, NombreMarca, Descripcion)
+VALUES(3, 'Laboratorio Uf', 'Descripción de la Marca C');
+INSERT INTO Marcas (IDMarca, NombreMarca, Descripcion)
+VALUES(4, 'Laboratorio Vick', 'Descripción de la Marca D');
+
 
 INSERT INTO Medicamentos (IDMedicamento, IDProveedor, IDMarca, Nombre, Descripcion, CantidadStock, FechaCaducidad)
-VALUES (1, 1, 1, 'Bill 13', 'Para el dolor de pancita', 50, '2023-12-31');
-
+VALUES (1, 1, 1, 'Bill 13', 'Para el dolor de pancita', 150, '2023-12-31');
 INSERT INTO Medicamentos (IDMedicamento, IDProveedor, IDMarca, Nombre, Descripcion, CantidadStock, FechaCaducidad)
-VALUES (2, 1, 1, 'Ibuprofeno', 'Dolor general', 250, '2023-12-31');
-
+VALUES (2, 1, 1, 'Ibuprofeno', 'Dolor general, resfrio', 250, '2024-12-31');
+INSERT INTO Medicamentos (IDMedicamento, IDProveedor, IDMarca, Nombre, Descripcion, CantidadStock, FechaCaducidad)
+VALUES (3, 1, 1, 'Viadil', 'Dolor estomago', 100, '2025-12-31');
+INSERT INTO Medicamentos (IDMedicamento, IDProveedor, IDMarca, Nombre, Descripcion, CantidadStock, FechaCaducidad)
+VALUES (4, 1, 1, 'Refrianex', 'Resfrio', 500, '2026-12-31');
 
 INSERT INTO Compras (IDCompra, IDProveedor, FechaCompra, TotalCompra)
 VALUES (1, 1, '2023-05-15', 500.00);
@@ -150,13 +171,18 @@ VALUES (3, 2, '2023-06-20', 500.00);
 
 INSERT INTO DetalleVenta (IDDetalleVenta, IDVenta, IDMedicamento, CantidadVendida, PrecioUnitario)
 VALUES (1, 1, 1, 20, 10.00);
+INSERT INTO DetalleVenta (IDDetalleVenta, IDVenta, IDMedicamento, CantidadVendida, PrecioUnitario)
+VALUES (2, 2, 2, 100, 10.00);
 
 INSERT INTO MovimientosInventario (IDMovimiento, TipoMovimiento, IDMedicamento, Cantidad, FechaMovimiento)
 VALUES (1, 'entrada', 1, 50, '2023-05-22');
+INSERT INTO MovimientosInventario (IDMovimiento, TipoMovimiento, IDMedicamento, Cantidad, FechaMovimiento)
+VALUES (2, 'salida', 1, 100, '2024-05-22');
 
-INSERT INTO Almacenes (IDAlmacen, NombreAlmacen, Ubicacion, IDMedicamento, IDMovimiento)
-VALUES
-  (1, 'Almacén A', 'Ubicación A', 1, 1);
+INSERT INTO Almacenes (IDAlmacen, NombreAlmacen, IDMedicamento, IDMovimiento)
+VALUES(1, 'Almacén A', 1, 1);
+INSERT INTO Almacenes (IDAlmacen, NombreAlmacen, IDMedicamento, IDMovimiento)
+VALUES(2, 'Almacén B', 2, 2);
 
 
  /*Auditoria*/
@@ -177,7 +203,6 @@ CREATE TABLE AuditoriaProveedores (
   IDAuditoria INT PRIMARY KEY AUTO_INCREMENT,
   IDProveedor INT,
   NombreProveedor VARCHAR(50),
-  Direccion VARCHAR(100),
   NumeroTelefono VARCHAR(15),
   CorreoElectronico VARCHAR(50),
   Accion VARCHAR(20),
@@ -216,3 +241,27 @@ CREATE TABLE AuditoriaCompras (
   Accion VARCHAR(20),
   FechaAccion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+
+ /*Indices*/
+/*1*/
+ CREATE INDEX idx_Medicamentos_IDProveedor ON Medicamentos(IDProveedor);
+
+/*2*/
+CREATE INDEX idx_Medicamentos_Nombre ON Medicamentos(Nombre);
+CREATE INDEX idx_Almacenes_IDMovimiento ON Almacenes(IDMovimiento);
+
+/*3*/
+/*Indice simple*/
+CREATE INDEX idx_Clientes_Rol ON Clientes(Rol);
+/*Indice compuesto*/
+CREATE INDEX idx_DetalleVenta_IDVenta_Medicamento ON DetalleVenta(IDVenta, IDMedicamento);
+
+/*4*/
+/*Indice simple*/
+
+CREATE INDEX idx_Medicamentos_CantidadStock ON Medicamentos(CantidadStock);
+CREATE INDEX idx_MovimientosInventario_TipoMovimiento ON MovimientosInventario(TipoMovimiento);
+CREATE INDEX idx_Almacenes_IDMedicamento ON Almacenes(IDMedicamento);
+
+/*CREATE INDEX idx_Almacenes_IDMovimiento ON Almacenes(IDMovimiento);*/

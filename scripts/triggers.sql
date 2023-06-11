@@ -114,8 +114,8 @@ CREATE TRIGGER Audit_Proveedores
 AFTER INSERT ON Proveedores
 FOR EACH ROW
 BEGIN
-  INSERT INTO AuditoriaProveedores (IDProveedor, NombreProveedor, Direccion, NumeroTelefono, CorreoElectronico, Accion)
-  VALUES (NEW.IDProveedor, NEW.NombreProveedor, NEW.Direccion, NEW.NumeroTelefono, NEW.CorreoElectronico, 'INSERT');
+  INSERT INTO AuditoriaProveedores (IDProveedor, NombreProveedor, NumeroTelefono, CorreoElectronico, Accion)
+  VALUES (NEW.IDProveedor, NEW.NombreProveedor, NEW.NumeroTelefono, NEW.CorreoElectronico, 'INSERT');
 END;//
 DELIMITER ;
 
