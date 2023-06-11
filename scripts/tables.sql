@@ -265,3 +265,12 @@ CREATE INDEX idx_MovimientosInventario_TipoMovimiento ON MovimientosInventario(T
 CREATE INDEX idx_Almacenes_IDMedicamento ON Almacenes(IDMedicamento);
 
 /*CREATE INDEX idx_Almacenes_IDMovimiento ON Almacenes(IDMovimiento);*/
+
+/*5*/
+/*Indices compuestos*/
+/*CREATE INDEX idx_DetalleVenta_IDVenta_Medicamento ON DetalleVenta(IDVenta, IDMedicamento);*/
+CREATE INDEX idx_Clientes_Nombre_IDCliente ON Clientes(Nombre, IDCliente);
+CREATE INDEX idx_Ventas_IDCliente_IDVenta ON Ventas(IDCliente, IDVenta);
+/*Indices simples*/
+CREATE INDEX idx_Clientes_Nombre ON Clientes(Nombre);
+CREATE INDEX idx_Medicamentos_IDMedicamento ON Medicamentos(IDMedicamento);
