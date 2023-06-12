@@ -1,4 +1,4 @@
-# **Segundo Parcial BD - Implementación  Nuevo Sistema De Almacenes Para Los Medicamentos Controlados Para La Ceass**.👨‍⚕️🏥
+# **Segundo Parcial BD - Implementación  Nuevo Sistema De Administracion Para Los Medicamentos Controlados Para La Ceass**.👨‍⚕️🏥
 
 ## **Descripción de la entidad y los requisitos**🏢.
 
